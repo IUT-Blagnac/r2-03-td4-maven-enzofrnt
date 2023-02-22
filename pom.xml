@@ -4,14 +4,25 @@
 
   <modelVersion>4.0.0</modelVersion>
   <groupId>fr.iutblagnac</groupId>
-  <artifactId>tp_qualite</artifactId>
+  <artifactId>ClasseApplicationAgenceBancaire</artifactId>
   <version>1.0</version>
   <packaging>jar</packaging>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+  <dependencies>
+      <dependency>
+      <groupId>fr.iutblagnac</groupId>
+      <artifactId>library</artifactId>
+      <version>1.0</version>
+      <scope>system</scope>
+      <systemPath>${basedir}/libs/library.jar</systemPath>
+      </dependency>
+  </dependencies>
+
   <build>
+    
     <plugins>
      <plugin>
        <groupId>org.apache.maven.plugins</groupId>
@@ -28,7 +39,7 @@
         <configuration>
           <archive>
             <manifest>
-              <mainClass>HelloJava</mainClass>
+              <mainClass>ClasseApplicationAgenceBancaire</mainClass>
             </manifest>
           </archive>
         </configuration>
