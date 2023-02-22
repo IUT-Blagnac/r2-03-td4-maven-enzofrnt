@@ -1,0 +1,24 @@
+{
+  "tests": [
+    {
+      "name": "Maven package",
+      "setup": "",
+      "run": "mvn package",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Javadoc",
+      "setup": "",
+      "run": "mvn javadoc:javadoc",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 20,
+      "points": null
+    }
+  ]
+}
