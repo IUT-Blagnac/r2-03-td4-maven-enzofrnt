@@ -1,5 +1,5 @@
 = Compiler et construire ses applications avec maven
-Enzo Fournet <enzo@enzo-fnrt.fr>
+Enzo Fournet <contcat@enzo-fnrt.fr>
 v1, 2023-02-23 : Initial draft
 :icons: font
 :diagrams: .
@@ -22,112 +22,33 @@ ifdef::env-github[]
 :icongit: Git
 endif::[]
 
-//---------------------------------------------------------------
+//---------------------------------------------------------------x
+Prérequis:
+
+- Java JDK et JRE
+- Maven
+- VSCode
+
+
 == Mise en place
-utiliser la commande suivante pour compiler
-.
-+
+
+- Tout d'abord commencer par utilisé la commande :
+....
+mvn clean
+....
+Cela retirera tout les autre fichier qui on pus être généré avant.
+
+- Ensuite pour compiler es obtenir les classes du projet vous devez utiliser la command :
 ....
 mvn compile
 ....
-+
-.
 
-WARNING: Les illustrations utilisent {vscode}, mais peu importe que vous utilisiez un autre IDE comme {eclipse} ou {intellij}, il vous suffit d'adapter à votre IDE (qu'il vous faut apprendre à connaître).
-
-Le plus simple pour réaliser ce TP est d'utiliser gitpod : rajoutez `gitpod.io/#` devant l'URL de votre dépôt ou cliquez sur le bouton Gitpod si vous en avez un qui s'affiche.
-
-.Pour les utilisateurs des machines IUT (merci à Rémy Guibert)
-[WARNING]
-====
-Pour ceux qui veulent lancer les commandes {maven} sur leur machine :
-
-. Placez vous dans le répertoire cloné (par exemple `r2-03-td4-maven-Falettiattendre`)
-. Ouvrez une invite de commande Windows (CMD) dans ce répertoire
-. Tapez la commande :
-+
-....
-set JAVA_HOME=C:\Program Files\Java\jdk-17.0.1
-....
-+
-. Vous pouvez maintenant taper les commandes {maven}
-
-Vous pouvez aussi importer dans eclipse votre projet maven puis faire exécuter à eclipse votre `pom.xml` (menu:Run as...[Maven]).
-====
-
-== C'est parti
-
-=== 1ère compilation : erreur de comilation
-
-WARNING: Les étapes suivantes utilisent les commandes {maven} en ligne de commande, c'est à dire à taper dans un terminal linux, mais vous pouvez utiliser l'équivalent en "click de souris" de votre IDE favori.
-
-. Lancer `mvn clean`
-+
-C'est une bonne habitude à prendre (de nettoyer tout ce qui a pu se passer avant).
-+
-. Lancer `mvn compile`
-+
-Observez l'erreur de compilation qui en résulte.
-Par exemple :
-+
-.Erreur de compilation
-image::error1.png["Erreur de compilation", width=80%]
-+
-. Corrigez le code en conséquence.
-+
-.Erreur corrigée
-image::success1.png["Erreur éliminée", width=80%]
-+
-. Observez la création du répertoire `target` qui contient entre autre la version compilée `HelloJava.class` dans le répertoire `target/classes`.
-
-=== 2ème compilation : construire une application
-
-On ne peut malheureusement pas exécuter d'application puisqu'on n'a pas de main.
-
-. Ajoutez un `main` dans la classe.
-+
-[%collapsible]
-====
-[source,java]
-----
-class HelloJava {	
-        public static void main(String[] args) {
-		System.out.println("Hello Blagnac");
-	}
-
-	public void afficherCancan(){
-	}
-}
-----
-====
-+
-. Une fois que vous avez réussi à compiler (`mvn compile`), lancez la fabrication d'une version exécutable :
-+
+- Ensuite pour générer le fichier .jar vous devez utiliser la command :
 ....
 mvn package
 ....
-+
-. Observez la création du fichier JAR et testez-le :
+
+- Enfin si vous souhaitez obtenir la javdoc il faudrat utiliser la command :
 ....
-java -jar target/tp_qualite-1.0.jar
+mvn javadoc:javadoc
 ....
-
-.Et voilà!
-image::success2.png["Ca run!", width=80%]
-
-== Améliorations
-
-. Reprenez un de vos exercices précédents et mettez les sources dans `src/java`.
-. Ajustez éventuellement le `pom.xml` pour que les étapes précédentes produisent les résultats escomptés. Pensez à vérifier que votre fichier .jar est exécutable. Que devez-vous corriger dans votre pom.xml ? Quelle est la commande pour le lancer ?
-. Ajoutez les commentaires vus en dev.
-. Cherchez dans la documentation {maven} les commandes permettant de générer une documentation javadoc, et les adaptions à faire sur votre projet (et éventuellement `pom.xml`) afin que {maven} génère la documentation automatiquement pour vous.
-. Documentez votre projet: remplacez le contenu de ce fichier README.doc par les instructions de compilation, de documentation et de lancement de votre projet. 
-
-== Consignes et rendus
-
-Pour ce TP, il vous faudra simplement rendre le projet complet (`src`) ainsi que la dernière version du fichier `pom.xml` sur votre dépôt et la javadoc de votre code.
-
-[appendix]
-== Import dans Eclipse
-
-TO BE DONE...
