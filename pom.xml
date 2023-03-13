@@ -4,7 +4,7 @@
 
   <modelVersion>4.0.0</modelVersion>
   <groupId>fr.iutblagnac</groupId>
-  <artifactId>tp_qualite</artifactId>
+  <artifactId>ClasseEssai</artifactId>
   <version>1.0</version>
   <packaging>jar</packaging>
     <properties>
@@ -22,26 +22,28 @@
             <target>1.8</target>
         </configuration>
       </plugin>
+      
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
         <configuration>
           <archive>
             <manifest>
-              <mainClass>HelloJava</mainClass>
+              <mainClass>ClasseEssai</mainClass>
             </manifest>
           </archive>
         </configuration>
       </plugin>
-      <plugin>
+       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-javadoc-plugin</artifactId>
-        <version>3.3.2</version>
-        <configuration> 
-          <source>8</source> 
-          <doclint>none</doclint>
+        <version>3.5.0</version>
+        <configuration>
+          <show>private</show>
+          <nohelp>true</nohelp>
         </configuration>
       </plugin>
+
     </plugins>
   </build>
 </project>
